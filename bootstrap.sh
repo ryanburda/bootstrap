@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Turn a brand new machine into one with SSH access to GitHub and git-ext
-# installed, so that the `repos` repo can take over from there.
+# Take a brand new machine all the way to fully set up: SSH access to GitHub,
+# git-ext, and everything the private `repos` repo sets up from there.
 #
 # NOTE: Must be bash since it runs before zsh is guaranteed to be installed.
 

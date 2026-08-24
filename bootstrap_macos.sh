@@ -6,9 +6,8 @@
 #   - Installs Homebrew and the minimal packages needed to talk to GitHub over SSH
 #   - Generates an SSH key and registers it with GitHub
 #   - Installs git-ext
-#
-# From here, clone the `repos` repo over SSH and run its setup script to set
-# up everything else, including this machine's config repo.
+#   - Clones the private `repos` repo and runs its setup script, which sets up
+#     everything else, including this machine's config repo
 
 set -e
 
@@ -24,9 +23,4 @@ brew install git gh
 
 curl -fsSL https://raw.githubusercontent.com/ryanburda/git-ext/main/install.sh | sh
 
-echo ""
-echo "Bootstrap complete. Next:"
-echo "  git clone-bare git@github.com:ryanburda/repos.git ~/code/repos"
-echo "  WT=\$(git -C ~/code/repos worktree-add base main)"
-echo "  git -C ~/code/repos worktree lock \"\$WT\""
-echo "  \$WT/setup.sh"
+"${REPO_ROOT}/run_repos_setup.sh"
