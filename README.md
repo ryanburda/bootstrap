@@ -1,11 +1,12 @@
 # bootstrap
 
-Takes a brand new machine all the way to fully set up: gets SSH access to
-GitHub and git-ext installed, then hands off to the private
-[repos](https://github.com/ryanburda/repos) repo, which sets up everything
-else, including the [config](https://github.com/ryanburda/config) repo.
+Takes a brand new machine all the way to fully set up:
+- gets SSH access to GitHub
+- installs [git-ext](https://github.com/ryanburda/git-ext)
+- hands off to the private [repos](https://github.com/ryanburda/repos) repo,
+which sets up all other repos
 
-Public on purpose: there's nothing machine- or account-specific in here, and
+Public on purpose: there's nothing machine or account-specific in here, and
 it needs to run before an SSH key exists, so it's fetched over plain HTTPS.
 
 ## Usage
@@ -14,11 +15,6 @@ it needs to run before an SSH key exists, so it's fetched over plain HTTPS.
 git clone https://github.com/ryanburda/bootstrap.git ~/code/bootstrap
 ~/code/bootstrap/bootstrap.sh
 ```
-
-This dispatches to `bootstrap_arch.sh` or `bootstrap_macos.sh` based on
-`uname`. Each installs the minimal packages needed to talk to GitHub over SSH,
-runs `github_ssh.sh`, installs git-ext, then runs `run_repos_setup.sh`, which
-clones `repos` and runs its `setup.sh` -- no further steps needed.
 
 ## GitHub authentication
 
