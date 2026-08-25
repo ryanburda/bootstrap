@@ -21,6 +21,9 @@ brew install git gh
 
 "${REPO_ROOT}/github_ssh.sh"
 
+# SSH works now, so stop using the HTTPS remote the README cloned this with.
+"${REPO_ROOT}/use_ssh_remote.sh"
+
 curl -fsSL https://raw.githubusercontent.com/ryanburda/git-ext/main/install.sh | sh
 
 "${REPO_ROOT}/run_repos_setup.sh"

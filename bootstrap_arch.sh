@@ -15,10 +15,15 @@ set -e
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-sudo pacman -Sy
-sudo pacman -S --needed --noconfirm git curl openssh github-cli zsh
+# -Syu rather than -Sy: syncing the package databases without also upgrading
+# leaves the system in a partial-upgrade state, where newly installed packages
+# link against libraries the machine doesn't have yet.
+sudo pacman -Syu --needed --noconfirm git curl openssh github-cli zsh
 
 "${REPO_ROOT}/github_ssh.sh"
+
+# SSH works now, so stop using the HTTPS remote the README cloned this with.
+"${REPO_ROOT}/use_ssh_remote.sh"
 
 curl -fsSL https://raw.githubusercontent.com/ryanburda/git-ext/main/install.sh | sh
 
