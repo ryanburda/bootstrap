@@ -1,19 +1,18 @@
 # bootstrap
 
-Takes a brand new machine all the way to fully set up:
-- gets SSH access to GitHub
-- installs [git-ext](https://github.com/ryanburda/git-ext)
-- hands off to the private [repos](https://github.com/ryanburda/repos) repo,
-which sets up all other repos
+Takes a brand new machine all the way to fully set up.
 
 Public on purpose: there's nothing machine or account-specific in here, and
 it needs to run before an SSH key exists, so it's fetched over plain HTTPS.
 
+Works on:
+- Arch
+- MacOS
+
 ## Usage
 
 ```sh
-git clone https://github.com/ryanburda/bootstrap.git ~/code/bootstrap
-~/code/bootstrap/bootstrap.sh
+curl -fsSL https://raw.githubusercontent.com/ryanburda/bootstrap/main/install.sh | sh
 ```
 
 ## GitHub authentication
