@@ -12,8 +12,6 @@ export PATH="${HOME}/.local/bin:${PATH}"
 
 ROOT_PATH="${HOME}/code/repos"
 
-git clone-bare git@github.com:ryanburda/repos.git "$ROOT_PATH"
-WT=$(git -C "$ROOT_PATH" worktree-add base main)
-git -C "$ROOT_PATH" worktree lock "$WT" 2>/dev/null || true
+WT=$(git seed git@github.com:ryanburda/repos.git "$ROOT_PATH")
 
 "$WT/setup.sh"
