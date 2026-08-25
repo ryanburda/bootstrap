@@ -14,8 +14,6 @@ ROOT_PATH="${HOME}/code/repos"
 
 git clone-bare git@github.com:ryanburda/repos.git "$ROOT_PATH"
 WT=$(git -C "$ROOT_PATH" worktree-add base main)
-# worktree-add output is unreliable when the worktree already exists
-WT="${ROOT_PATH}/base"
-git -C "$ROOT_PATH" worktree lock "$WT"
+git -C "$ROOT_PATH" worktree lock "$WT" 2>/dev/null || true
 
 "$WT/setup.sh"

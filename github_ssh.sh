@@ -41,8 +41,10 @@ else
     ssh-keygen -t ed25519 -C "$email" -f "$KEY"
 fi
 
-# ~/.ssh/config sets AddKeysToAgent, so this is only about caching a
-# passphrase up front -- and on Linux only if an agent is actually running.
+# Cache the passphrase up front, if there is one. ~/.ssh/config does set
+# AddKeysToAgent, but it isn't stowed until config's setup runs much later --
+# nothing has written it yet at this point in the bootstrap. On Linux this is
+# only useful if an agent is actually running.
 if [[ $OSTYPE == darwin* ]]; then
     ssh-add --apple-use-keychain "$KEY"
 elif [[ -n "$SSH_AUTH_SOCK" ]]; then
