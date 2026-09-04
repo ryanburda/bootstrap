@@ -5,7 +5,7 @@
 
 set -e
 
-# install.sh symlinks git-ext's commands here, but dotfiles (which put this on
+# install.sh symlinks git-wt's commands here, but dotfiles (which put this on
 # PATH permanently) haven't been stowed yet -- that happens inside `config`'s
 # setup.sh, which `repos`' setup.sh runs.
 export PATH="${HOME}/.local/bin:${PATH}"

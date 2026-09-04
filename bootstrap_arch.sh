@@ -5,7 +5,7 @@
 # This script:
 #   - Installs the minimal packages needed to talk to GitHub over SSH
 #   - Generates an SSH key and registers it with GitHub
-#   - Installs git-ext
+#   - Installs git-wt
 #   - Clones the private `repos` repo and runs its setup script, which sets up
 #     everything else, including this machine's config repo
 #
@@ -25,6 +25,6 @@ sudo pacman -Syu --needed --noconfirm git curl openssh github-cli zsh
 # SSH works now, so stop using the HTTPS remote the README cloned this with.
 "${REPO_ROOT}/use_ssh_remote.sh"
 
-curl -fsSL https://raw.githubusercontent.com/ryanburda/git-ext/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/ryanburda/git-wt/main/install.sh | sh
 
 "${REPO_ROOT}/run_repos_setup.sh"
